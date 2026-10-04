@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuvraj Prajapati</title>
+<meta name="description" content="Yuvraj Prajapati — Business Analytics & Marketing student at the University of Dayton. Power BI, DAX, SQL, and data-driven decision tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f5f5f7;
+    --ink:#1d1d1f;
+    --gray:#6e6e73;
+    --blue:#0071e3;
+    --line:#d2d2d7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;line-height:1.5;
+  }
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+  /* Nav — Apple-style translucent bar */
+  nav{
+    position:sticky;top:0;z-index:100;height:48px;
+    background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid rgba(0,0,0,.08);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:980px;margin:0 auto;padding:0 22px}
+  .nav-inner .brand{font-size:.95rem;font-weight:600;color:var(--ink)}
+  .nav-inner .links{display:flex;gap:26px}
+  .nav-inner .links a{font-size:.8rem;font-weight:400;color:var(--ink);opacity:.85;transition:opacity .2s}
+  .nav-inner .links a:hover{opacity:1;color:var(--ink)}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Hero */
+  .hero{text-align:center;padding:120px 22px 100px}
+  .hero .kicker{font-size:1.25rem;font-weight:600;color:var(--blue);margin-bottom:10px}
+  .hero h1{
+    font-size:clamp(2.8rem,8vw,5rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;
+    max-width:14ch;margin:0 auto 22px;
+  }
+  .hero .sub{font-size:clamp(1.15rem,2.6vw,1.6rem);color:var(--gray);font-weight:500;max-width:30ch;margin:0 auto 34px}
+  .pill-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;align-items:center}
+  .pill{background:var(--blue);color:#fff;font-size:1.05rem;font-weight:500;padding:11px 24px;border-radius:980px;transition:background .2s}
+  .pill:hover{background:#0077ed;color:#fff}
+  .txtlink{font-size:1.05rem;font-weight:500;color:var(--blue)}
+  .txtlink:hover{text-decoration:underline}
+  .txtlink::after{content:" ›"}
+
+  /* Full-bleed product-style sections */
+  .showcase{padding:110px 22px;text-align:center}
+  .showcase.alt{background:var(--bg-alt)}
+  .showcase .eyebrow{font-size:1rem;font-weight:600;color:var(--blue);letter-spacing:.01em;margin-bottom:8px}
+  .showcase h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin-bottom:16px}
+  .showcase .blurb{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--gray);font-weight:400;max-width:44ch;margin:0 auto 10px}
+  .showcase .metrics{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin:34px 0 6px}
+  .metric .n{font-size:2.2rem;font-weight:700;letter-spacing:-.02em}
+  .metric .l{font-size:.85rem;color:var(--gray);font-weight:500}
+  .showcase .link-row{margin-top:26px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+  .shot{
+    max-width:900px;width:100%;margin:46px auto 0;border-radius:22px;
+    box-shadow:0 30px 60px rgba(0,0,0,.14);border:1px solid rgba(0,0,0,.06);display:block;
+  }
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .chip{background:rgba(0,0,0,.05);color:var(--ink);font-size:.82rem;font-weight:500;padding:6px 14px;border-radius:980px}
+
+  /* About narrative */
+  .story{padding:110px 22px;text-align:center}
+  .story h2{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:700;letter-spacing:-.02em;margin-bottom:24px}
+  .story p{font-size:clamp(1.1rem,2.3vw,1.45rem);color:var(--ink);font-weight:400;max-width:40ch;margin:0 auto 22px;line-height:1.5}
+  .story p .dim{color:var(--gray)}
+
+  /* Skills grid */
+  .skills{padding:100px 22px;background:var(--bg-alt)}
+  .skills h2{text-align:center;font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:700;letter-spacing:-.02em;margin-bottom:50px}
+  .skgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto}
+  .skcard{background:#fff;border-radius:20px;padding:30px 26px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .skcard h3{font-size:1.1rem;font-weight:600;margin-bottom:16px}
+  .skcard ul{list-style:none}
+  .skcard li{color:var(--gray);font-size:.98rem;padding:5px 0}
+
+  /* Experience */
+  .exp{padding:100px 22px}
+  .exp h2{text-align:center;font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:700;letter-spacing:-.02em;margin-bottom:50px}
+  .exp-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+  .exp-item{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline}
+  .exp-item:last-child{border-bottom:none}
+  .exp-item .role{font-size:1.15rem;font-weight:600}
+  .exp-item .org{color:var(--blue);font-size:1rem;margin-top:2px}
+  .exp-item .desc{color:var(--gray);font-size:.95rem;margin-top:8px;grid-column:1/-1}
+  .exp-item .when{color:var(--gray);font-size:.9rem;white-space:nowrap}
+
+  /* Contact */
+  .contact{padding:130px 22px;text-align:center;background:var(--bg-alt)}
+  .contact h2{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;letter-spacing:-.025em;margin-bottom:16px}
+  .contact p{font-size:1.3rem;color:var(--gray);margin-bottom:36px;max-width:30ch;margin-left:auto;margin-right:auto}
+
+  footer{padding:30px 22px;text-align:center;color:var(--gray);font-size:.78rem;background:var(--bg-alt);border-top:1px solid var(--line)}
+  footer a{color:var(--gray)}
+
+  @media(max-width:720px){
+    .nav-inner .links{gap:16px}
+    .nav-inner .links a{font-size:.72rem}
+    .skgrid{grid-template-columns:1fr}
+    .exp-item{grid-template-columns:1fr}
+    .exp-item .when{grid-row:1}
+    .hero{padding:80px 22px 70px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">Yuvraj Prajapati</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="kicker reveal">Business Analytics &amp; Marketing</div>
+  <h1 class="reveal">Data, made to decide.</h1>
+  <p class="sub reveal">I build Power BI, DAX, and SQL tools that turn raw numbers into clear calls.</p>
+  <div class="pill-row reveal">
+    <a href="#work" class="pill">See the work</a>
+    <a href="https://github.com/yuvraj04prajapati" class="txtlink" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<!-- Project 1 -->
+<section class="showcase" id="work">
+  <div class="reveal">
+    <div class="eyebrow">Power BI · DAX</div>
+    <h2>Adventure Works</h2>
+    <p class="blurb">An executive analytics suite built to answer one question: what should we do next?</p>
+    <div class="metrics">
+      <div class="metric"><div class="n">$24.9M</div><div class="l">Revenue analyzed</div></div>
+      <div class="metric"><div class="n">42</div><div class="l">DAX measures</div></div>
+      <div class="metric"><div class="n">3</div><div class="l">Interactive reports</div></div>
+    </div>
+    <img class="shot" src="https://github.com/Yuvraj04prajapati/adventure-works-powerbi/raw/main/docs/executive-dashboard.png" alt="Adventure Works Executive Dashboard" loading="lazy">
+    <div class="chips">
+      <span class="chip">Star Schema</span>
+      <span class="chip">What-If Simulation</span>
+      <span class="chip">Drill-through</span>
+      <span class="chip">Dynamic KPIs</span>
+    </div>
+    <div class="link-row">
+      <a href="https://github.com/Yuvraj04prajapati/adventure-works-powerbi" class="txtlink" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- Project 2 -->
+<section class="showcase alt">
+  <div class="reveal">
+    <div class="eyebrow">SQL · MySQL</div>
+    <h2>Restaurant Order Analysis</h2>
+    <p class="blurb">Digging through a quarter of sales to find what actually drives the menu — and who the best customers really are.</p>
+    <div class="chips">
+      <span class="chip">SQL</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">Menu Performance</span>
+      <span class="chip">Customer Analysis</span>
+    </div>
+    <div class="link-row">
+      <a href="https://github.com/Yuvraj04prajapati/Restaurant-Order-Analysis" class="txtlink" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="story" id="about">
+  <div class="reveal">
+    <h2>A little about me.</h2>
+    <p>I'm a rising junior at the <span class="dim">University of Dayton</span>, double-majoring in Business Analytics and Marketing — Class of 2028.</p>
+    <p>Analytics tells you <span class="dim">what's happening.</span> Marketing tells you <span class="dim">why people act on it.</span> I like living in the overlap.</p>
+    <p>Before the US, I ran a cement-distribution business in Gujarat, India — which is where I learned to read a P&amp;L and make calls under real pressure. Now I'm aiming for a Summer 2027 analytics internship.</p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="skills" id="skills">
+  <h2 class="reveal">What I work with.</h2>
+  <div class="skgrid">
+    <div class="skcard reveal">
+      <h3>Analytics &amp; BI</h3>
+      <ul>
+        <li>Power BI</li>
+        <li>DAX</li>
+        <li>Data Modeling / Star Schema</li>
+        <li>Dashboard Design</li>
+        <li>KPI &amp; Metric Design</li>
+      </ul>
+    </div>
+    <div class="skcard reveal">
+      <h3>Data &amp; Cloud</h3>
+      <ul>
+        <li>SQL / MySQL</li>
+        <li>AWS (S3, Athena)</li>
+        <li>Excel</li>
+        <li>Data Cleaning &amp; Prep</li>
+        <li>Streamlit (exploring)</li>
+      </ul>
+    </div>
+    <div class="skcard reveal">
+      <h3>Business</h3>
+      <ul>
+        <li>Marketing Strategy</li>
+        <li>Consulting / Client Work</li>
+        <li>Operations &amp; Inventory</li>
+        <li>Financial Statement Analysis</li>
+        <li>Presentation &amp; Storytelling</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section class="exp">
+  <h2 class="reveal">Experience.</h2>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div>
+        <div class="role">Consultant</div>
+        <div class="org">Flyer Consulting — University of Dayton</div>
+        <div class="desc">Student-led consulting group serving nonprofits. Analysis and strategy for real client engagements.</div>
+      </div>
+      <div class="when">2025 – Present</div>
+    </div>
+    <div class="exp-item reveal">
+      <div>
+        <div class="role">Facilities Operations &amp; Rec Staff</div>
+        <div class="org">UD Campus Recreation</div>
+        <div class="desc">Safety &amp; security trained, AED/CPR Pro certified. Daily operations and member support.</div>
+      </div>
+      <div class="when">2024 – Present</div>
+    </div>
+    <div class="exp-item reveal">
+      <div>
+        <div class="role">Owner / Operator</div>
+        <div class="org">Brahmani Trading &amp; Sanitary — Gujarat, India</div>
+        <div class="desc">Ran a cement-distribution business end to end: inventory, suppliers, customer accounts, and the P&amp;L.</div>
+      </div>
+      <div class="when">2022 – 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <h2>Let's talk.</h2>
+    <p>Open to Summer 2027 internships in analytics, BI, and data.</p>
+    <div class="pill-row">
+      <a href="mailto:yuvrajprajapati.04@gmail.com" class="pill">Email me</a>
+      <a href="https://www.linkedin.com/in/yuvraj-prajapati" class="txtlink" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Yuvraj Prajapati · <a href="https://github.com/yuvraj04prajapati" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
