@@ -296,11 +296,50 @@
   <div class="wrap">
     <div class="reveal">
       <div class="sec-label">Selected Work</div>
-      <h2>Three projects, start to finish.</h2>
+      <h2>Four projects, start to finish.</h2>
       <p class="sec-sub">
         Each one framed the way I'd brief a client: what the problem was, how I approached it,
         and what came out the other side.
       </p>
+    </div>
+
+    <!-- CASE: ROBINHOOD MARKETING CHANNEL PERFORMANCE -->
+    <div class="case reveal">
+      <div class="case-head">
+        <div class="tagline">
+          <span class="tag">AWS Athena</span><span class="tag">Amazon S3</span>
+          <span class="tag">SQL</span><span class="tag">Python / pandas</span><span class="tag">Marketing Analytics</span>
+        </div>
+        <h3>Robinhood — Marketing Channel Performance</h3>
+        <p class="one-liner">
+          Six months of ad data, ~$125K across six campaigns, read for which channels actually earned
+          their spend and where the next budget should go.
+        </p>
+      </div>
+      <div class="pai">
+        <div>
+          <h4>Problem</h4>
+          <p>Robinhood spent roughly $125K on ads over the first half of 2025, but leadership had no clear
+          read on which campaigns produced paying customers versus just cheap signups.</p>
+        </div>
+        <div>
+          <h4>Approach</h4>
+          <p>Joined spend to 18,840 signups and computed cost per signup, cost per paying customer, and
+          90-day ROAS for every campaign, then benchmarked paid against free traffic and tracked spend
+          month by month. Raw CSVs live in Amazon S3; every number is computed in Amazon Athena.</p>
+        </div>
+        <div>
+          <h4>Impact</h4>
+          <p>The cheapest signups weren't the cheapest customers: prospecting video drew the most signups
+          at $5 each but only 3% paid, costing $159 a customer, while retargeting and brand search quietly
+          earned their spend. Delivered a dollar-level reallocation toward the winners, with the risks that
+          would break it.</p>
+        </div>
+      </div>
+      <div class="case-foot">
+        <span class="stack">Amazon S3 &middot; Amazon Athena (serverless SQL) &middot; Python / pandas &middot; ROAS &amp; cost-per-customer analysis</span>
+        <a href="https://github.com/Yuvraj04prajapati/Marketing-Channel-Performance" class="txtlink" target="_blank" rel="noopener">Full breakdown on GitHub</a>
+      </div>
     </div>
 
     <!-- CASE 1 -->
